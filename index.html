@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BURGER-QUIZ RPZ</title>
+  <link rel="stylesheet" href="./libs/bootstrap.min.css">
+  <link rel="stylesheet" href="./style/style.css">
+</head>
+<body>
+
+  <header class="container my-3">
+    <div class="row align-items-center">
+      <div class="col-auto logo-img"></div>
+      <div class="col font-weight-bold logo-text">BURGER-QUIZ RPZ</div>
+    </div>
+  </header>
+
+  <main class="container my-5">
+    <div class="row align-items-center justify-content-center">
+      <div class="col-md-6 content"></div>
+      <div class="col-md-6 text-center">
+        <h1 class="main-title mb-4">Пройди тестування та збери бургер своєї мрії ⇓</h1>
+        <button id="btnOpenQuiz" class="btn btn-outline-danger btn-lg" data-toggle="modal" data-target="#modalQuiz">
+          <span>Пройти тестування</span>
+        </button>
+      </div>
+    </div>
+  </main>
+
+  <!-- Модальне вікно -->
+  <div class="modal fade" id="modalQuiz" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="questionTitle">Результат шаблонізації</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form id="formAnswers">
+            <!-- Сюди JS рендерить шаблонний рядок -->
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="prev" class="btn btn-secondary">Prev</button>
+          <button type="button" id="next" class="btn btn-primary">Next</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="./questions.js"></script>
+</body>
+</html>
