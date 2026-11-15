@@ -1,34 +1,36 @@
-// ==========================================
-// ПРАКТИЧНА РОБОТА: Шаблонні рядки та Інтерполяція
-// ==========================================
-
-// Пункт 3: Занести назву бургера і шлях до картинки в 2 окремі змінні
 const burgerTitle = 'Стандартний бургер';
 const burgerImgSrc = './image/burger.png';
-
-// Отримуємо контейнер з HTML для виведення даних (в index.html це форма модального вікна або блок content)
 const formAnswers = document.getElementById('formAnswers');
-
-// Пункт 4: Функція виведення даних на сторінку в шаблоні HTML (через інтерполяцію)
+const btnOpenQuiz = document.getElementById('btnOpenQuiz');
+const modalQuiz = document.getElementById('modalQuiz');
+const btnClose = document.querySelector('.modal .close');
 function renderBurgerCard(title, imgSrc) {
-  // Використовуємо зворотні лапки `` та синтаксис ${} для інтерполяції
   const burgerTemplate = `
     <div class="answers-item d-flex flex-column align-items-center mx-auto text-center py-3">
       <h3 class="logo-text mb-3">${title}</h3>
-      <div class="border rounded p-2 bg-white shadow-sm">
+      <div class="border rounded p-2 bg-white shadow-sm mb-2">
         <img class="answerImg img-fluid" src="${imgSrc}" alt="${title}" style="max-width: 180px;">
       </div>
-      <span class="mt-2 text-muted">Атрибут src: <code>${imgSrc}</code></span>
+      <span class="text-muted">Шлях: <code>${imgSrc}</code></span>
     </div>
   `;
 
-  // Виводимо сформований HTML у DOM-структуру
   if (formAnswers) {
     formAnswers.innerHTML = burgerTemplate;
   }
 }
-
-// Запуск після завантаження сторінки
 document.addEventListener('DOMContentLoaded', () => {
   renderBurgerCard(burgerTitle, burgerImgSrc);
+  if (btnOpenQuiz && modalQuiz) {
+    btnOpenQuiz.addEventListener('click', () => {
+      modalQuiz.style.display = 'block';
+      modalQuiz.classList.add('show');
+    });
+  }
+  if (btnClose && modalQuiz) {
+    btnClose.addEventListener('click', () => {
+      modalQuiz.style.display = 'none';
+      modalQuiz.classList.remove('show');
+    });
+  }
 });
